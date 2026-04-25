@@ -41,7 +41,8 @@ who interact with that service over a network.
 | [`gpu-yolo26m-v1/`](gpu-yolo26m-v1/) | YOLO26-m | NVIDIA GPU (DeepStream) | ONNX | Live on fnvr |
 | [`gpu-yolo26l-v1/`](gpu-yolo26l-v1/) | YOLO26-l | NVIDIA GPU (DeepStream) | ONNX | Tested on fnvr |
 | [`gpu-yolo26x-v1/`](gpu-yolo26x-v1/) | YOLO26-x | NVIDIA GPU (DeepStream) | ONNX | Built, untested |
-| [`hailo-yolo11l-v1/`](hailo-yolo11l-v1/) | YOLOv11-l | Hailo-8 / Hailo-8L | ONNX (+ HEF after compile) | ONNX ready, HEF building |
+| [`hailo-yolo11l-v1/`](hailo-yolo11l-v1/) | YOLOv11-l | Hailo-8 / Hailo-8L | ONNX + HEF | Tested on fnvr (batch=2) |
+| [`hailo-yolo11m-v1/`](hailo-yolo11m-v1/) | YOLOv11-m | Hailo-8 / Hailo-8L | ONNX + HEF | Live on fnvr (batch=4, ~15 fps/cam) |
 
 The YOLO26 family is the preferred GPU detector (better accuracy
 than YOLOv11 at the same parameter count) but Hailo's compiler
