@@ -1,0 +1,11 @@
+# Build artefacts that aren't versioned (intermediate files from the
+# trim/compile pipeline). Keep the .onnx + .hef weights themselves
+# in tree — they're the whole point of this repo.
+*.har
+*.engine
+*.calib.table
+calib_images/
+calib/
+runs/
+__pycache__/
+.DS_Store

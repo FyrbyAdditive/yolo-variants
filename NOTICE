@@ -1,0 +1,33 @@
+yolo-variants
+Copyright (C) 2026 Tim Ellis
+
+Licensed under the GNU Affero General Public License v3.0; see LICENSE.
+
+This repository contains class-trimmed derivatives of:
+
+  - Ultralytics YOLO26 (yolo26m, yolo26l, yolo26x)
+    Source: https://huggingface.co/Ultralytics/YOLO26
+    Upstream: https://github.com/ultralytics/ultralytics
+    License: AGPL-3.0
+
+  - Ultralytics YOLOv11 (yolov11l)
+    Source: Ultralytics' default model registry
+    Upstream: https://github.com/ultralytics/ultralytics
+    License: AGPL-3.0
+
+The trimmed weights in each variant directory are produced by slicing
+the classification head's output Conv2d layers along the
+output-channel axis, keeping only the rows corresponding to the 15
+class IDs documented in `trim.json`. No further training is performed;
+all retained-class weights are byte-identical to upstream.
+
+Because these artefacts are derivatives of AGPL-3.0 weights, any
+network-deployed service that uses them must also comply with AGPL-3.0
+(make corresponding source available to users interacting with the
+service over a network).
+
+Trimming script: tools/train-detector/trim-classes.py in the fnvr
+project (https://github.com/fnvr-project — adjust to actual repo URL).
+Export shape:
+  - GPU variants → DeepStream-Yolo's export_yolo26.py
+  - Hailo variant → vanilla Ultralytics ONNX (opset 11, NMS stripped)
